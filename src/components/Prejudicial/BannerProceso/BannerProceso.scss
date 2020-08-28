@@ -1,0 +1,45 @@
+@import "../../../scss/index.scss";
+
+.banner-proceso{
+    position: relative;
+    top: -60px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+
+    &__gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 40%,
+            $background-light 100%
+        );
+    }
+
+    &__info {
+        z-index: 1;
+        margin: 0 0 70px 50px;
+
+        h4 {
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            color: $background-grey-hover;
+        }
+
+        h1{
+            font-size: 50px;
+            margin-top: 0;
+            color: $background-grey-hover;
+        }
+    }
+
+}

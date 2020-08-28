@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import { Button, Form, Input, Image } from "semantic-ui-react";
 import { useDropzone } from "react-dropzone";
-import NoImage from "../../assets/png/avatarNoImage.png";
+import NoImage from "../../../assets/png/avatarNoImage.png";
 import { toast } from "react-toastify";
 
 import { v4 as uuidv4 } from 'uuid';
-import firebase from "../../utils/Firebase";
+import firebase from "../../../utils/Firebase";
 import "firebase/storage";
 import "firebase/firestore";
 
@@ -26,18 +26,18 @@ export default function UploadPreju(props) {
     const file20 = new File([1000],'NoImage.png',{type:'image/png'})
 
 
+ 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const onDrop = useCallback(acceptedFiles =>{
         const file = acceptedFiles[0];
         setFile(file);
         seTbanner(URL.createObjectURL(file));
-
     })
     
     const { getRootProps, getInputProps} = useDropzone({
         noKeyboard:true,
         accept:"image/jpeg, image/png",
         onDrop
-
     })
 
 
