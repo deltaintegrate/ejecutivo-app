@@ -1,0 +1,53 @@
+@import "../../scss/index.scss";
+
+
+.top-bar {
+    height: 50px;
+    background-color: $background-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+    &__left {
+        i{
+            color: $font-dark;
+            font-size: 20px !important;
+            &:hover {
+                cursor:pointer;
+                color:  $font-grey;
+            }
+        }
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+
+        a   {
+            display: flex;
+            align-items: center;    
+            margin-right: 20px;
+            color: $font-dark;
+
+            &:hover {
+                color: $font-grey;
+                cursor: pointer;
+            }
+            img {
+                width: 25px;
+                height: 25px;
+                margin-right: 10px;
+                border-radius: 50px;
+            }
+        }
+        
+        i {
+            color: $font-dark;
+           &:hover {
+               color:$font-grey;
+               cursor: pointer;
+           } 
+        }
+    }
+}

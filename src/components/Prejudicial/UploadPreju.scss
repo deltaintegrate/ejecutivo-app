@@ -1,0 +1,33 @@
+@import "../../scss/index.scss";
+
+
+.ui.form.add-preju-form{
+    .preju-banner{
+        position: relative;
+        background-color: $background-grey-ligth;
+        height: 200px;
+
+        img {
+            height: 100%;
+            margin: 0 auto;
+
+        }
+        .banner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        >p{
+            text-align: center;
+            padding: 90px;
+         }
+ 
+
+
+    }
+}

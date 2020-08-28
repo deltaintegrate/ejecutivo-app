@@ -1,0 +1,35 @@
+@import "../../scss/index.scss";
+
+
+.prejudicial {
+    
+    
+    color: $font-dark;
+    margin: 20px 10px 0 50px;
+
+    .prejutop{
+
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        
+
+        > h3 {
+            font-size: 25px;
+        }
+        
+        .button {
+            margin-bottom: 10px;
+        }
+
+        border-bottom: 1px solid $font-grey;
+    }
+
+    .prejubot{
+        margin-top: 25px;
+        
+    }
+
+
+   
+}

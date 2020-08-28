@@ -1,0 +1,50 @@
+@import "../../../scss/index.scss";
+
+
+.basic-slider-items {
+    margin: 10px 0;
+
+    >h2 {
+        border-bottom: 1px solid $border-grey-ligth;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    &__list{
+        .slick-prev {
+            left: -10px;
+            background-color: grey;
+
+
+
+        }
+
+        .slick-next {
+            right: 10px;
+            background-color: grey;
+        }
+
+        &-item {
+            padding: 10px;
+            margin: 5px;
+            display: table;
+
+            .avatar {
+                
+                height: 80px;
+                width: 80px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+
+            }
+
+            >h3{
+                color: $font-dark;
+                margin-top: 10px;
+                font-size: 16px;
+            }
+            
+        }
+    }
+}
