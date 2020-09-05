@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Form, Dropdown, Button } from "semantic-ui-react";
+import { Form, Dropdown, Button, Input } from "semantic-ui-react";
 import firebase from "../../../utils/Firebase";
 import { map } from "lodash";
 import { toast } from "react-toastify";
@@ -19,7 +19,6 @@ export default function DeleteProceso(props) {
 
     const [Proceso, setProceso] = useState([]);
     const [formData, setFormData] = useState(initialValueForm())
-    const { value } = this.state;
     console.log(status);
 
     useEffect(() => {
@@ -43,27 +42,11 @@ export default function DeleteProceso(props) {
 
 
     const onClick = () =>{
-        console.log("carpeta de proceso borrada");
-        console.log(formData)
-        console.log(value);
-        
-        // var desertRef = firebase.storage().ref().child(`${status}/`)
-
-        // // Delete the file
-        // desertRef.delete().then(function() {
-        // // File deleted successfully
-        // }).catch(function(error) {
-        // // Uh-oh, an error occurred!    
-        // });
-
-        // db.collection(status).doc(formData.id).delete().then(sucess => {
-            
-        //     toast.success("proceso borrado correctamente");
-        //     console.log("Document successfully deleted!");
-        // }).catch(error => {
-        //     console.error("Error removing document: ", error);
-        //     toast.warning("Error en borrar el proceso");
-        // });
+        db.collection(status).doc(formData.id).delete().then(sucess => {
+            toast.success("proceso borrado correctamente");
+        }).catch(error => {
+            toast.warning("Error en borrar el proceso");
+        });
 
         
     }
@@ -78,8 +61,7 @@ export default function DeleteProceso(props) {
                  selection
                  options={Proceso}
                  lazyLoad
-                 onChange={(e,data,{value}) => setFormData({ ...formData, id: data.value, name:this.value })}
-                 value={value}
+                 onChange={(e,data) => setFormData({ ...formData, id: data.value})}
                 />
             </Form.Field>
             <Form.Field>
