@@ -1,1 +1,1 @@
-export { default } from "./UploadPreju";
+export { default } from "./UploadProceso";

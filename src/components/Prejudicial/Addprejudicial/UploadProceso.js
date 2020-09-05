@@ -9,14 +9,14 @@ import firebase from "../../../utils/Firebase";
 import "firebase/storage";
 import "firebase/firestore";
 
-import "./UploadPreju.scss";
+import "./UploadProceso.scss";
 
 
 const db = firebase.firestore(firebase);
 
 export default function UploadPreju(props) {
 
-    const { setShowModal } = props
+    const { setShowModal, status } = props
     const [formData, setFormData] = useState(initialValueForm())
     const [banner, seTbanner] = useState(null);
     const [file, setFile] = useState(null);
@@ -42,12 +42,12 @@ export default function UploadPreju(props) {
 
 
     const uploadImage = (fileName,data) => {
-        const ref = firebase.storage().ref().child(`procesos/prejudicial/${data}/${fileName}`);
+        const ref = firebase.storage().ref().child(`procesos/${status}/${data}/${fileName}`);
         return ref.put(file);
     }
 
     const uploadNoImage =  (fileName,data) => {
-        const ref = firebase.storage().ref().child(`procesos/prejudicial/${data}/${fileName}`);
+        const ref = firebase.storage().ref().child(`procesos/${status}/${data}/${fileName}`);
         return ref.put(file20);
     }
 
@@ -59,7 +59,7 @@ export default function UploadPreju(props) {
         const fileName = "NoImage";
         uploadNoImage(fileName,formData.name).then(() => {
             console.log("imagen subida correctamente");
-            db.collection("prejudicial").add({name:formData.name, banner:fileName}).then(() =>{
+            db.collection(status).add({name:formData.name, banner:fileName}).then(() =>{
                 toast.success("Proceso creado correctamente");
                 setIsLoading(false);
                 setShowModal(false);
@@ -78,7 +78,7 @@ export default function UploadPreju(props) {
            console.log(file);
            uploadImage(fileName,formData.name).then(() => {
                console.log("imagen subida correctamente");
-               db.collection("prejudicial").add({name:formData.name, banner:fileName}).then(() =>{
+               db.collection(status).add({name:formData.name, banner:fileName}).then(() =>{
                 toast.success("proceso creado correctamente");
                 setIsLoading(false);
                 setShowModal(false);

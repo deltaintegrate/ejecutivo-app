@@ -61,10 +61,12 @@ function MenuLeft( props ) {
         }
     }
 
+    //{userAdmin && (    )}
+
     return (
         <>
         <Menu className="menu-left" vertical>
-            {userAdmin && (
+            <div className="sticki">
             <div className="top">
                 <Menu.Item>
                     <Input type="text" placeholder="Buscar proceso" />
@@ -82,7 +84,7 @@ function MenuLeft( props ) {
                     <Icon name="thumbtack"/>terminados
                 </Menu.Item>
             </div>
-            )}
+           
             <div className="footer" >
             <Menu.Item as={Link} to="/calendario"name="calendario" active={ activeMenu === "/calendario"} onClick={HandlerMenu}>
                     <Icon name="calendar"/> Calendario
@@ -94,6 +96,7 @@ function MenuLeft( props ) {
                     <Icon name="folder"/> Archivos 
             </Menu.Item>
 
+            </div>
             </div>
         </Menu>
         <BasicModal show={showModal} setShow={setShowModal} title={titleModal}>

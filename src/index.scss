@@ -81,5 +81,25 @@ code {
         background-color: $font-grey;
       }
     }
+    .ui.dropdown {
+      background-color: $border-grey-ligth;
+      font-size: 16px;
+      color: $font-light;
+      border: 0;
+
+      .search {
+        color: $font-light;
+      }
+
+      .menu {
+        background-color: $border-grey-ligth;
+        border: 0;
+
+        .item {
+          border-color: $border-grey-ligth;
+          color: $font-light;
+        }
+      }
+    }
   
 }

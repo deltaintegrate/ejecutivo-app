@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Grid } from "semantic-ui-react";
-import UploadPreju from "../../components/Prejudicial/Addprejudicial";
+import UploadProceso from "../../components/Prejudicial/Addprejudicial";
 import NoImage from "../../assets/png/avatarNoImage.png";
 import BasicModal from "../../components/Modal/BasicModal";
+import DeleteProceso from "../../components/Prejudicial/Deleteproceso";
 import { map } from "lodash";
 import { Link } from "react-router-dom";
 //import BasicSliderItems from "../../components/Sliders/BasicSliderItems";
@@ -17,32 +18,38 @@ const db = firebase.firestore(firebase);
 export default function Prejudicial(props) {
 
 
-    const { user, setReloadApp } = props;
+    const { user } = props;
     const [showModal, setShowModal] = useState(false);
     const [titleModal, setTitleModal] = useState("");
     const [contentModal, setContentModal] = useState(null);
 
     const [procesos, setProcesos] = useState([]);
+    var status = "prejudicial";
 
     useEffect(() => {
-        db.collection("prejudicial").get().then( async response => {
+        db.collection("prejudicial").get().then( response => {
             
             const arrayProcesos = [];
-            await map(response?.docs, procesos => {
+             map(response?.docs, procesos => {
                 const data = procesos.data();
                 data.id =procesos.id;
                 arrayProcesos.push(data);
             });
-            setReloadApp(prevState => !prevState);
             setProcesos(arrayProcesos);
         })
-    }, [procesos,setReloadApp])
+    }, [])
 
     const onClick = () => {
         // va en el el div de prejubot ---> <BasicSliderItems  data={procesos} folderImage="prejudicial" urlName="prejudicial"/>
        setTitleModal("creacion de carpeta");
-       setContentModal(< UploadPreju  setShowModal={setShowModal} />);
+       setContentModal(< UploadProceso  setShowModal={setShowModal} status={status} />);
        setShowModal(true);
+    }
+
+    const onClickDelete = () => {
+        setTitleModal("eliminacion Carpeta");
+        setContentModal(< DeleteProceso status={status} />)
+        setShowModal(true);
     }
     
 
@@ -51,7 +58,10 @@ export default function Prejudicial(props) {
         <div  className="prejudicial">
             <div className="prejutop">
                 <h3>Prejudicial</h3>
-                <Button onClick={onClick} circular>Crear Carpeta</Button>
+                <div className="botones" >
+                    <Button  onClick={onClickDelete} circular>Eliminar Carpeta</Button>
+                    <Button onClick={onClick} circular>Crear Carpeta</Button>
+                </div>
             </div>
             <div className="prejubot">
                 <Grid>
@@ -85,7 +95,7 @@ function RenderProceso(props){
                 setBannerUrl(url)
             }
         })
-    }, [proceso])
+    }, [])
 
     return(
         <Link to={`/prejudicial/${proceso.id}`} >
