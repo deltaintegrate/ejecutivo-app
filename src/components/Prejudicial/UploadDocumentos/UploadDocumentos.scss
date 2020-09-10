@@ -1,0 +1,75 @@
+@import "../../../scss/index.scss";
+
+
+
+
+.ui.form{
+
+    min-height: 75vmax;
+    display: block;
+    justify-content: center;
+
+    .field{
+
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 15px;
+
+        >h2{
+            font-size: 25px;
+            color: $font-dark;
+            
+        }
+
+        .dzu-dropzone{
+            display: flex;
+            margin: 10px;
+            padding: 5px;
+
+            .dzu-submitButtonContainer{
+                background-color: $background-grey;
+                padding: 10px;
+                margin: 10px;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 3;
+
+            }
+
+            .dzu-previewImage{
+                width: 60px;
+                color: $background-grey-dark;
+            }
+
+            .dzu-previewContainer{
+                display: block;
+                margin: 5px;
+                color: $background-grey-dark;
+            }
+
+        }
+
+        .label_input{
+            background-color: $background-grey;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 3;
+            
+        }
+
+        border-bottom: 1px solid $font-grey;   
+
+    }
+
+    .footer {
+        text-align: center;
+        align-items: center;
+        position: relative;
+        bottom: 0;
+    }
+
+    }
+
